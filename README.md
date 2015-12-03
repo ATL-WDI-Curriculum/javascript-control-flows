@@ -389,6 +389,15 @@ A `for... in` loop is a way to iterate through an object. Go to [MDN](https://de
 
 1. Come up with a use case for the `for ... in` loop and share it with your neighbor. 
 
+## For ... Of
+
+A `for ... of` loop is another way to iterate through an object. Go to [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of) and read about how to use it.
+
+#### Exercise
+
+1. Come up with a use case for the `for ... of` loop and share it with your
+   neighbor.
+
 ##Infinite Loops
 
 - While writing a loop it is possible to create a loop that will go until infinity.
