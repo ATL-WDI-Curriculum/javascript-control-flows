@@ -68,45 +68,62 @@ and any other combination is false.
 
 
 
-## Comparisons
 
-To compare two values in Javascript for equality testing we use `===`, which will check the sameness of the thing on the left with the thing on the right. Note sameness is a very fuzzy word, and thus, `===` is also very fuzzy concept, which should be approached with caution in every language. 
+## Equality Operator `==`
 
-Here are some cases when equality testing seems reasonable
+Equality is a bit more complex. There are 2 ways in JavaScript to verify equality.
 
-```javascript	
-	true === true 
-	//=> true
-	false === true
-	//=> false
-	
-	1 === 1
-	//=> true
-	1 === 2
-	//=> false
-	
-	"hello" === "hello"
-	//=> true	
+When verifying equality using double equal `==`, JavaScript does a lot of the "type coercion" in the background. Like we mentioned above, if the operands have a different type (ie: the number `1` and the string `"1"`), JavaScript will try to change the type of both operands to check whether they are equal. This means that a lot of times, expressions will return equal more easily than if we were stricter about what things were equivalent. Some examples:
+
+```javascript
+"dog" == "dog";
+//=> true
+
+1 == true;
+//=> true
 ```
 
+## Equality Operator `===`
 
-But here are some cases when it does not. 
+To avoid type coercion and measure equality more strictly, **use the triple-equals operator**. Because `===` more truly measures actual equality, we'll use this far more often when checking whether too things are, in fact, the same thing.
 
+> **Note:** "Sameness" and "equality" have various definitions and can be somewhat "fuzzy". They can also differ by programming language. Because you'll often be measuring whether two things are equal, you should investigate the way this works carefully.
 
-```javascript	
-	{} === {}
-	//=> false
-	[] === []
-	//=> false	
+Some examples:
+
+```javascript
+1 === true;
+//=> false
+
+true === true;
+//=> true
+
+"hello" === "hello"
+//=> true
 ```
 
+However, there are some incidents when it does not do what we expect, for example when working with empty objects or arrays:
+
+```javascript
+{} === {}
+//=> Uncaught SyntaxError: Unexpected token ===
+
+[] === []
+//=> false
+
+[1,7] === [1,7]
+//=> false
+```
 
 **Explanation**
 
-The second set of examples fail because both **object literals** and **arrays** are objects, and not just values like strings, numbers, and booleans. Objects can be complex collections of values in memory that we  are referring to in a program, and so, we only reference each object by an id to simply things. However, that means when we go to compare the two objects we don't care if they look like similar collections. We only compare their respective ids when checking for equality, and each `{}` or `[]` represents a new object with it's own unique id.
+The examples in the second set fail equality tests because both **object literals** and **arrays** are objects, and not just "primitive" values like strings, numbers, and booleans. Objects and arrays are complex collections of values, and when we refer to them, we're actually referencing where they live in memory. That's why we call them "reference types," while things like strings and numbers are "value types."
 
-Arrays and objects are called **reference** types for the above reasons, so be careful with using them too intuitively.
+What this means is that when we go to compare two objects or arrays with `===`, JavaScript doesn't care if they look like similar collections. It only compares whether or not they are the exact same object in memory. In each of the cases above, when checking for equality, we're actually comparing two objects that are in two different places in memory. They're not exactly "the same."
 
+#### != and !==
+
+There are also `!=` and `!==` operators, which are the negative versions of `==` and `===`
 
 ### Truthy
 
@@ -358,6 +375,18 @@ var shakespeare = "Our doubts are traitors, and make us lose the good we oft mig
 
 10) Find the numbers in common in two different lists of numbers.
 
+
+## forEach
+
+Another way of iterating over an array that was added with ECMAScript 5 is [`forEach()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach):
+
+```javascript
+["dog", "cat", "hen"].forEach(function(currentValue, index, array) {
+   console.log("I want a ", currentValue);
+   console.log(array[index]);
+});
+```
+
 ## While loops
 
 The while loop is the other type of repetitive control flow structure. However, `for` handled most of the general iteration tasks we could hope to perform. You should hardly ever need just a `while` loop. It will run so long as a condition is true.
@@ -444,6 +473,31 @@ switch (new Date().getDay()) {
 - This will stop the execution of more code and case testing inside the block.
 - When a match is found, and the job is done, it's time for a break.
 There is no need for more testing.
+
+
+####Another Example
+The switch statement can be used for multiple branches based on a number or string:
+
+```javascript
+var food = "apple";
+
+switch(food) {
+  case 'pear':
+    console.log("I like pears");
+    break;
+  case 'apple':
+    console.log("I like apples");
+    break;
+  default:
+    console.log("No favourite");
+}
+//=> I like apples
+```
+
+In this case the `switch` statement compares `food` to each of the cases (`pear` and `apple`), and evaluates the expressions beneath them if there is a match. It uses `===` to evaluate equality.
+
+The default clause is optional.
+
 
 #####What is faster switch or if/else?
 
