@@ -1,11 +1,11 @@
 # JS Control Flow
 ## Cond, Loop, Iterator, and all that
 
-| Objectives |
-| :---- |
-| 	Identify and discuss boolean operators and truthyness |
-| 	Apply different boolean operators with objects in conditional statements |
-|	Discuss and apply loops and iterators using conditional statements |
+Objectives
+
+- Identify and discuss boolean operators and truthyness
+- Apply different boolean operators with objects in conditional statements
+- Discuss and apply loops and iterators using conditional statements
 
 
 ## Agenda
