@@ -36,7 +36,7 @@ JavaScript supports a compact set of statements, specifically control flow state
 
 Statements meant to be executed after a control flow operation will be grouped into what is called a **block statement**. These statements are wrapped into a pair of curly braces:
 
-```
+```js
 {
   console.log("hello");
   console.log("roar");
@@ -47,7 +47,7 @@ Statements meant to be executed after a control flow operation will be grouped i
 
 We've seen that the scope in JavaScript changes often. In the case of **block statements**, there is no scope created.
 
-```
+```js
 var name = "gerry";
 {
   var name = "jay";
