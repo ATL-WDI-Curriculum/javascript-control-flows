@@ -14,33 +14,31 @@ Objectives
   * Logical Operators
   	* `&&`, `||`, and `!`
   	* comparisons
-  	* truthy and falsey 	
+  	* truthy and falsey
   * Conditionals (if/else)
-  	* short circuit 
+  	* short circuit
   	* Ternary operator
   * For iterator
   	* What is iterating? Compute with for loops: factorial, repeating 50 times.
-  	* `for` 
+  	* `for`
   	* `for ... in`
   * While loop
   	* generic condition
   * Switch case
   * Operator precidence
-  
+
 ## What is Control Flow?
 
-[Funny Flow Chart](https://www.laserfiche.com/content/uploads/2014/03/engineering-flow-chart.png)
+[Funny Flow Chart](flow-chart.png)
 
-Control Flow is a fundamental concept in programming that allows you to dictate how your code runs under different conditions or until a certain condition is met.  
- 
-
+Control Flow is a fundamental concept in programming that allows you to dictate how your code runs under different conditions or until a certain condition is met.
 
 
 ## Logical Operators
 
 There are two types of binary operators that work with booleans, (a binary operator just requires two arguments.)
 
-* **AND**, denoted `&&` 
+* **AND**, denoted `&&`
 * **OR**, denoted `||`
 
 
@@ -53,7 +51,7 @@ There is a third unary operatory, (a unary operator that requires just one argum
 Quick Notes:
 
 * The `&&` operator requires both left and right values to be `true` to return `true`, i.e.
-	
+
 	````js
 	true && true //=> true
 	````
@@ -63,7 +61,7 @@ and any other combination is false.
 	* Only `false || false` will return `false`
 
 * Which one is faster?
-	
+
 * The `!` takes a value and returns the opposite boolean value, i.e. ` !(true) //=> false`.
 
 
@@ -133,22 +131,22 @@ In a language some values can be taken to be `true` or `false`, and we can check
 
 	!!(1)
 	//=> true
-	
+
 	!!(0)
 	//=> false
-	
+
 	!!(-1)
 	//=> true
-	
+
 	!!([])
 	//=> true
-	
+
 	!!({})
 	//=> true
-	
+
 	!!(null)
 	//=> false
-	
+
 	!!('')
 	//=> false
 ```
@@ -182,7 +180,7 @@ if (num % 2  === 0) {
 	*  you can specifiy the `else` block to run if `expr` is `false`
 * `if (expr1) { ... } else if (expr2) { ... } ... else { ... }`
 	*  if `expr1` is false then each `else if` expression will be evaluated until one is `true`, and an `else` will be run otherwise.
-	
+
 
 
 ```javascript
@@ -219,32 +217,32 @@ Write a script that prompts the user for their current mood. If the user inputs 
 
 	```js
 	var num = ;// write a number here
-	
+
 	// write your conditions here
-	
+
 	```
 
 2. Use conditionals to check if a hardcoded number is divisible by `2` or  `3` and then `console.log` that the number is divisible by two or three.
 
 	```js
 	var num = ;// write a number here
-	
+
 	// write your conditions here
-	
+
 	```
 
 3. Use conditionals to check if a hardcoded `quantity` is `1` or greater than one. If the `quantity`  is one or greater `console.log` either `1 pet` or `quantity + " pets"` respectively.
 
 	```js
 	var quantity = ;// write a number here
-	
+
 	// write your conditions here
-	
+
 	```
 
 #### Ternary Operators
 
-Another way to write a very shorthand conditional is using a **ternary operator**, `expr1 ? expr2 : expr3 `. 
+Another way to write a very shorthand conditional is using a **ternary operator**, `expr1 ? expr2 : expr3 `.
 
 ```js
 true ? console.log("it is true"): console.log("it is false");
@@ -255,12 +253,12 @@ false ? console.log("it is true"): console.log("it is false");
 
 ### Iterating
 
-It is a way of incrementally repeating a task. Iterating is a way of describing procedures like 
+It is a way of incrementally repeating a task. Iterating is a way of describing procedures like
 
 ```js
 print "hello world" 50 times
-``` 
-It is also a way of describing 
+```
+It is also a way of describing
 
 ```js
 print each item in a shopping list
@@ -273,11 +271,11 @@ how would I print all vegetables in a shoppping list?
 ```
 
 
-Typically iteration has three or four main parts 
+Typically iteration has three or four main parts
 
 * an initial state
 * a condition for repeating
-* process to be run for each repetition 
+* process to be run for each repetition
 * a state change for proceeding to the next step
 
 It isn't surprising that the primary means of iterating in most languages is called a `for` loop, which has the following structure
@@ -307,7 +305,7 @@ for (var index = 0; index < friends.length; index = index + 1) {
 
 ```js
 	var shoppingList = ["apples", "oranges", "carrots"];
-		
+
 	// iterate here
 ```
 
@@ -324,7 +322,7 @@ for (var index = 0; index < friends.length; index = index + 1) {
 
 
 3) Word counting:
-	
+
 - a. Count the number of space separated words in the string below (Hint: do this with and without a `for` loop.).
 - b. Count the number of words that in a string that have the letter `a` in them.
 
@@ -335,39 +333,39 @@ var shakespeare = "Our doubts are traitors, and make us lose the good we oft mig
 
 
 4) Capitalize the first letter in every word in a string, i.e
-	
+
 ```js
-"hello world" => "Hello World"	
+"hello world" => "Hello World"
 ```
 
 5) Find the largest and smallest number in the array below.
 
 ```js
-	var numbers = [56, 74, 31, 89, 8, 
+	var numbers = [56, 74, 31, 89, 8,
 					22, 5, 19, 28, 100,
-					82, 72, 39, 25, 90, 
-					1, 97, 83, 58, 38, 
-					57, 71, 70, 7, 3, 
-					12, 48, 45, 43, 84, 
-					68, 49, 37, 41, 92, 
-					96, 6, 66, 95, 15, 
-					67, 2, 59, 4, 91, 
-					44, 50, 17, 30, 88, 
-					34, 55, 64, 9, 27, 
-					73, 60, 32, 81, 10, 
-					53, 61, 63, 51, 65, 
-					36, 26, 99, 76, 47, 
-					21, 14, 16, 40, 79, 
-					75, 85, 42, 86, 18, 
-					23, 24, 46, 69, 29, 
-					77, 20, 54, 80, 87, 
-					13, 94, 98, 93, 62, 
-					35, 33, 11, 52];			
+					82, 72, 39, 25, 90,
+					1, 97, 83, 58, 38,
+					57, 71, 70, 7, 3,
+					12, 48, 45, 43, 84,
+					68, 49, 37, 41, 92,
+					96, 6, 66, 95, 15,
+					67, 2, 59, 4, 91,
+					44, 50, 17, 30, 88,
+					34, 55, 64, 9, 27,
+					73, 60, 32, 81, 10,
+					53, 61, 63, 51, 65,
+					36, 26, 99, 76, 47,
+					21, 14, 16, 40, 79,
+					75, 85, 42, 86, 18,
+					23, 24, 46, 69, 29,
+					77, 20, 54, 80, 87,
+					13, 94, 98, 93, 62,
+					35, 33, 11, 52];
 ```
 
-6) You have a list of numbers in the `numbers` array above somehow got shuffled and one is missing. Luckily you know that the numbers were from `1 to 100`. Find the missing number. 
+6) You have a list of numbers in the `numbers` array above somehow got shuffled and one is missing. Luckily you know that the numbers were from `1 to 100`. Find the missing number.
 
-7) Find the `sum` of the values in an array and the `average` in the `numbers` array above. 
+7) Find the `sum` of the values in an array and the `average` in the `numbers` array above.
 
 8) Find the average of only the odd numbers the `numbers` array above.
 
@@ -398,10 +396,10 @@ while (true) {}
 
 This should be enough to break a browser.
 
-In the browser try the [`prompt`](https://developer.mozilla.org/en-US/docs/Web/API/Window.prompt) function out. 
+In the browser try the [`prompt`](https://developer.mozilla.org/en-US/docs/Web/API/Window.prompt) function out.
 
 
-#### Exercises 
+#### Exercises
 
 1. Re-write exercise `1` for `for` loops using a `while` loop.
 2. Use `prompt` and the `while` loop to create an array of `5` names.
@@ -412,11 +410,11 @@ In the browser try the [`prompt`](https://developer.mozilla.org/en-US/docs/Web/A
 ## For ... In
 
 
-A `for... in` loop is a way to iterate through an object. Go to [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...in) and read about how to use it. 
+A `for... in` loop is a way to iterate through an object. Go to [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...in) and read about how to use it.
 
 #### Exercise
 
-1. Come up with a use case for the `for ... in` loop and share it with your neighbor. 
+1. Come up with a use case for the `for ... in` loop and share it with your neighbor.
 
 ##Infinite Loops
 
@@ -501,7 +499,7 @@ The default clause is optional.
 
 #####What is faster switch or if/else?
 
-Note that for the if-else structure, the variable being checked is reloaded into a register for comparison every single time. The switch-case structure loads the variable one time, and proceeds to perform the series of comparisons. 
+Note that for the if-else structure, the variable being checked is reloaded into a register for comparison every single time. The switch-case structure loads the variable one time, and proceeds to perform the series of comparisons.
 
 Use if instead of switch when:
 
