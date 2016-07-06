@@ -29,7 +29,7 @@ Objectives
 
 ## What is Control Flow?
 
-[Funny Flow Chart](flow-chart.png)
+[!Funny Flow Chart](images/flow-chart.png)
 
 Control Flow is a fundamental concept in programming that allows you to dictate how your code runs under different conditions or until a certain condition is met.
 
