@@ -1,39 +1,6 @@
-<!--
-This file is auto-generated from a 'template.md'
-file using the 'md-process' script.
-Therefore *DO NOT* edit this file directly!
-Instead edit the template file and then run 'md-process'.
--->
-
 # JS Control Flow - Conditionals, Loops, Iterators, and all that
 
-## Table of Contents
-
-* [Agenda](#agenda)
-* [What is Control Flow?](#what-is-control-flow)
-* [Logical Operators](#logical-operators)
-* [Equality Operator `==`](#equality-operator-==)
-* [Equality Operator `===`](#equality-operator-===)
-    * [!= and !==](#=-and-==)
-  * [Truthy](#truthy)
-* [Conditionals](#conditionals)
-  * [YOU DO:](#you-do)
-  * [Exercises](#exercises)
-    * [Warming up](#warming-up)
-    * [Ternary Operators](#ternary-operators)
-  * [Iterating](#iterating)
-    * [Exercises](#exercises)
-* [forEach](#foreach)
-* [While loops](#while-loops)
-    * [Exercises](#exercises)
-* [For ... In](#for--in)
-    * [Exercise](#exercise)
-* [Infinite Loops](#infinite-loops)
-* [Switch Statement](#switch-statement)
-    * [Example](#example)
-    * [Another Example](#another-example)
-      * [What is faster switch or if/else?](#what-is-faster-switch-or-ifelse)
-* [Solution to the `moody` you do exercise](#solution-to-the-moody-you-do-exercise)
+{{TOC}}
 
 Objectives
 
