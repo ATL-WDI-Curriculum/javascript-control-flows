@@ -9,7 +9,6 @@ Instead edit the template file and then run 'md-process'.
 
 ## Table of Contents
 
-* [Agenda](#agenda)
 * [What is Control Flow?](#what-is-control-flow)
 * [Logical Operators](#logical-operators)
 * [Equality Operator `==`](#equality-operator-==)
@@ -21,18 +20,18 @@ Instead edit the template file and then run 'md-process'.
   * [Exercises](#exercises)
     * [Warming up](#warming-up)
     * [Ternary Operators](#ternary-operators)
-  * [Iterating](#iterating)
-    * [Exercises](#exercises)
+* [Switch Statement](#switch-statement)
+  * [Example](#example)
+  * [Another Example](#another-example)
+  * [What is faster switch or if/else?](#what-is-faster-switch-or-ifelse)
+* [Iterating](#iterating)
+  * [Exercises](#exercises)
 * [forEach](#foreach)
 * [While loops](#while-loops)
-    * [Exercises](#exercises)
+  * [Exercises](#exercises)
 * [For ... In](#for--in)
-    * [Exercise](#exercise)
+  * [Exercise](#exercise)
 * [Infinite Loops](#infinite-loops)
-* [Switch Statement](#switch-statement)
-    * [Example](#example)
-    * [Another Example](#another-example)
-      * [What is faster switch or if/else?](#what-is-faster-switch-or-ifelse)
 * [Solution to the `moody` you do exercise](#solution-to-the-moody-you-do-exercise)
 
 Objectives
@@ -41,31 +40,13 @@ Objectives
 - Apply different boolean operators with objects in conditional statements
 - Discuss and apply loops and iterators using conditional statements
 
-## Agenda
-
-* Javascript Control Flow
-  * Logical Operators
-  	* `&&`, `||`, and `!`
-  	* comparisons
-  	* truthy and falsey
-  * Conditionals (if/else)
-  	* short circuit
-  	* Ternary operator
-  * For iterator
-  	* What is iterating? Compute with for loops: factorial, repeating 50 times.
-  	* `for`
-  	* `for ... in`
-  * While loop
-  	* generic condition
-  * Switch case
-  * Operator precedence
-
 ## What is Control Flow?
 
 <img src="images/flow-chart.png" width="600px"/>
 
 Control Flow is a fundamental concept in programming that allows you to dictate how your code runs under different conditions or until a certain condition is met.
 
+---
 
 ## Logical Operators
 
@@ -75,7 +56,7 @@ There are two types of binary operators that work with booleans, (a binary opera
 * **OR**, denoted `||`
 
 
-There is a third unary operatory, (a unary operator that requires just one argument).
+There is a third unary operator, (a unary operator that requires just one argument).
 
 * **NOT**, denoted `!`
 
@@ -97,8 +78,7 @@ and any other combination is false.
 
 * The `!` takes a value and returns the opposite boolean value, i.e. ` !(true) //=> false`.
 
-
-
+---
 
 ## Equality Operator `==`
 
@@ -113,6 +93,8 @@ When verifying equality using double equal `==`, JavaScript does a lot of the "t
 1 == true;
 //=> true
 ```
+
+---
 
 ## Equality Operator `===`
 
@@ -171,9 +153,13 @@ The examples in the second set fail equality tests because both **object literal
 
 What this means is that when we go to compare two objects or arrays with `===`, JavaScript doesn't care if they look like similar collections. It only compares whether or not they are the exact same object in memory. In each of the cases above, when checking for equality, we're actually comparing two objects that are in two different places in memory. They're not exactly "the same."
 
+---
+
 #### != and !==
 
 There are also `!=` and `!==` operators, which are the negative versions of `==` and `===`
+
+---
 
 ### Truthy
 
@@ -239,7 +225,6 @@ if (num % 2  === 0) {
 	*  if `expr1` is false then each `else if` expression will be evaluated until one is `true`, and an `else` will be run otherwise.
 
 
-
 ```javascript
 var expr1 = true;
 var expr2 = true;
@@ -250,23 +235,21 @@ if (expr1) {
 } else if (expr2) {
 	console.log("expr2 is true!");
 }
-
 ```
-
 
 The above example will print `"expr1 is true"` and the `else if` is never reached. If `expr1` is `false` it would only print `"expr2 is true"`
 
+---
 
 ###YOU DO:
 Goto [repl.it](https://www.repl.it/) to complete the following exercise...
 
 Write a script that prompts the user for their current mood. If the user inputs `happy`, print 'Yay me too!' to the console, `sad` print 'Aw cheer up', else just print 'So moody!'. (A solution is at the bottom of this lesson:)
 
-
+---
 
 ----
 ### Exercises
-
 
 #### Warming up
 
@@ -308,7 +291,91 @@ false ? console.log("it is true"): console.log("it is false");
 //=> "it is false"
 ```
 
-### Iterating
+---
+
+## Switch Statement
+
+This is how it works:
+
+- The switch expression is evaluated once.
+- The value of the expression is compared with the values of each case.
+- If there is a match, the associated block of code is executed.
+
+### Example
+The `getDay()` method returns the weekday as a number between 0 and 6. (Sunday=0, Monday=1, Tuesday=2 ..)
+
+Use the weekday number to calculate weekday name:
+
+```js
+switch (new Date().getDay()) {
+    case 0:
+        day = "Sunday";
+        break;
+    case 1:
+        day = "Monday";
+        break;
+    case 2:
+        day = "Tuesday";
+        break;
+    case 3:
+        day = "Wednesday";
+        break;
+    case 4:
+        day = "Thursday";
+        break;
+    case 5:
+        day = "Friday";
+        break;
+    case 6:
+        day = "Saturday";
+        break;
+}
+
+```
+
+- When the JavaScript code interpreter reaches a break keyword, it breaks out of the switch block.
+- This will stop the execution of more code and case testing inside the block.
+- When a match is found, and the job is done, it's time for a break.
+There is no need for more testing.
+
+
+### Another Example
+The switch statement can be used for multiple branches based on a number or string:
+
+```javascript
+var food = "apple";
+
+switch(food) {
+  case 'pear':
+    console.log("I like pears");
+    break;
+  case 'apple':
+    console.log("I like apples");
+    break;
+  default:
+    console.log("No favourite");
+}
+//=> I like apples
+```
+
+In this case the `switch` statement compares `food` to each of the cases (`pear` and `apple`), and evaluates the expressions beneath them if there is a match. It uses `===` to evaluate equality.
+
+The default clause is optional.
+
+
+### What is faster switch or if/else?
+
+Note that for the if-else structure, the variable being checked is reloaded into a register for comparison every single time. The switch-case structure loads the variable one time, and proceeds to perform the series of comparisons.
+
+Use if instead of switch when:
+
+- You want to test for the truthiness of an expression.
+- You only have a single affirmative test.
+
+
+---
+
+## Iterating
 
 It is a way of incrementally repeating a task. Iterating is a way of describing procedures like
 
@@ -327,7 +394,6 @@ It can also be a way of solving problems like
 how would I print all vegetables in a shoppping list?
 ```
 
-
 Typically iteration has three or four main parts
 
 * an initial state
@@ -343,7 +409,6 @@ for ( intial state; check condition; change state) {
 }
 ```
 
-
 or a  more concrete example
 
 
@@ -355,8 +420,9 @@ for (var index = 0; index < friends.length; index = index + 1) {
 }
 ```
 
-#### Exercises
+---
 
+### Exercises
 
 1) Iterate through a shopping list and print each item in a shopping list.
 
@@ -385,9 +451,7 @@ for (var index = 0; index < friends.length; index = index + 1) {
 
 ```js
 var shakespeare = "Our doubts are traitors, and make us lose the good we oft might win, by fearing to attempt."
-
 ```
-
 
 4) Capitalize the first letter in every word in a string, i.e
 
@@ -430,6 +494,7 @@ var shakespeare = "Our doubts are traitors, and make us lose the good we oft mig
 
 10) Find the numbers in common in two different lists of numbers.
 
+---
 
 ## forEach
 
@@ -441,6 +506,8 @@ Another way of iterating over an array that was added with ECMAScript 5 is [`for
    console.log(array[index]);
 });
 ```
+
+---
 
 ## While loops
 
@@ -456,24 +523,27 @@ This should be enough to break a browser.
 In the browser try the [`prompt`](https://developer.mozilla.org/en-US/docs/Web/API/Window.prompt) function out.
 
 
-#### Exercises
+### Exercises
 
 1. Re-write exercise `1` for `for` loops using a `while` loop.
 2. Use `prompt` and the `while` loop to create an array of `5` names.
 3. Use [`confirm`](https://developer.mozilla.org/en-US/docs/Web/API/Window.confirm) to check if a user wants to continue looping. If `yes` print `hello`, and if anything else print `goodbye` and `stop` looping.
 4. Implement a guessing game using `prompt` and `while`.
 
+---
 
 ## For ... In
 
 
 A `for... in` loop is a way to iterate through an object. Go to [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...in) and read about how to use it.
 
-#### Exercise
+### Exercise
 
 1. Come up with a use case for the `for ... in` loop and share it with your neighbor.
 
-##Infinite Loops
+---
+
+## Infinite Loops
 
 - While writing a loop it is possible to create a loop that will go until infinity.
 - Obviously we try to avoid this while coding.
@@ -484,87 +554,9 @@ for (var i = 0; i > 0; i++) {
 }
 ```
 
-## Switch Statement
+---
 
-This is how it works:
-
-- The switch expression is evaluated once.
-- The value of the expression is compared with the values of each case.
-- If there is a match, the associated block of code is executed.
-
-####Example
-The `getDay()` method returns the weekday as a number between 0 and 6. (Sunday=0, Monday=1, Tuesday=2 ..)
-
-Use the weekday number to calculate weekday name:
-
-```js
-switch (new Date().getDay()) {
-    case 0:
-        day = "Sunday";
-        break;
-    case 1:
-        day = "Monday";
-        break;
-    case 2:
-        day = "Tuesday";
-        break;
-    case 3:
-        day = "Wednesday";
-        break;
-    case 4:
-        day = "Thursday";
-        break;
-    case 5:
-        day = "Friday";
-        break;
-    case 6:
-        day = "Saturday";
-        break;
-}
-
-```
-
-- When the JavaScript code interpreter reaches a break keyword, it breaks out of the switch block.
-- This will stop the execution of more code and case testing inside the block.
-- When a match is found, and the job is done, it's time for a break.
-There is no need for more testing.
-
-
-####Another Example
-The switch statement can be used for multiple branches based on a number or string:
-
-```javascript
-var food = "apple";
-
-switch(food) {
-  case 'pear':
-    console.log("I like pears");
-    break;
-  case 'apple':
-    console.log("I like apples");
-    break;
-  default:
-    console.log("No favourite");
-}
-//=> I like apples
-```
-
-In this case the `switch` statement compares `food` to each of the cases (`pear` and `apple`), and evaluates the expressions beneath them if there is a match. It uses `===` to evaluate equality.
-
-The default clause is optional.
-
-
-#####What is faster switch or if/else?
-
-Note that for the if-else structure, the variable being checked is reloaded into a register for comparison every single time. The switch-case structure loads the variable one time, and proceeds to perform the series of comparisons.
-
-Use if instead of switch when:
-
-- You want to test for the truthiness of an expression.
-- You only have a single affirmative test.
-
-
-##Solution to the `moody` you do exercise
+## Solution to the `moody` you do exercise
 
 ```js
 var mood = prompt("What is your mood?");
