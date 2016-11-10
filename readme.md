@@ -25,7 +25,7 @@ Objectives
   * While loop
   	* generic condition
   * Switch case
-  * Operator precidence
+  * Operator precedence
 
 ## What is Control Flow?
 
@@ -100,6 +100,25 @@ true === true;
 //=> true
 ```
 
+```javascript
+var data = [ false, true, 0, undefined, null, '', [], {} ];
+
+for (var i=0; i<data.length; i++) {
+  console.log('The Truthy/Falsey of ' + data[i] + ' = ' + !!data[i]);
+}
+
+/* The above code should produce the following output:
+The Truthy/Falsey of false = false
+The Truthy/Falsey of true = true
+The Truthy/Falsey of 0 = false
+The Truthy/Falsey of undefined = false
+The Truthy/Falsey of null = false
+The Truthy/Falsey of  = false
+The Truthy/Falsey of  = true
+The Truthy/Falsey of [object Object] = true
+*/
+```
+
 However, there are some incidents when it does not do what we expect, for example when working with empty objects or arrays:
 
 ```javascript
@@ -160,6 +179,11 @@ The following values are always falsy:
 - undefined
 - NaN (a special Number value meaning Not-a-Number!)
 
+---
+
+[Here](https://dorey.github.io/JavaScript-Equality-Table/) is a nice summary of how truthy and falsey work with the `==` and `===` comparison operators.
+
+---
 
 ## Conditionals
 
